@@ -18,8 +18,10 @@
   --text:#181b22; --text2:#6a7180; --border:#e4e7ec;
   --accent:#4f6af0; --accent-soft:rgba(79,106,240,.12);
   --ok:#22a06b; --danger:#dc3d43; --hw:#f59e0b;
-  --topbar:rgba(255,255,255,.55);
-  --topbtn:rgba(255,255,255,.62);
+  --topbar:rgba(255,255,255,.42);
+  --topbtn:rgba(255,255,255,.5);
+  --topshine:rgba(255,255,255,.65);
+  --topbord:rgba(255,255,255,.6);
   --shadow:0 1px 2px rgba(18,25,40,.05),0 10px 28px -14px rgba(18,25,40,.18);
 }
 [data-theme="dark"]{
@@ -28,8 +30,10 @@
   --text:#eceef3; --text2:#98a0ad; --border:#262c37;
   --accent:#7d8dff; --accent-soft:rgba(125,141,255,.16);
   --ok:#34c98a; --danger:#f2777c; --hw:#fbbf24;
-  --topbar:rgba(16,19,25,.55);
-  --topbtn:rgba(28,33,42,.6);
+  --topbar:rgba(14,17,23,.42);
+  --topbtn:rgba(32,38,48,.5);
+  --topshine:rgba(255,255,255,.09);
+  --topbord:rgba(255,255,255,.1);
   --shadow:0 1px 2px rgba(0,0,0,.4),0 12px 32px -14px rgba(0,0,0,.55);
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -40,7 +44,13 @@ button{font-family:inherit}
 .wrap{max-width:820px;margin:0 auto;padding:0 16px}
 
 /* ── Шапка: жидкое стекло ── */
-.topbar{position:sticky;top:0;z-index:50;background:var(--topbar);backdrop-filter:blur(22px) saturate(180%);-webkit-backdrop-filter:blur(22px) saturate(180%);border-bottom:1px solid color-mix(in srgb,var(--border) 60%,transparent)}
+.topbar{position:sticky;top:0;z-index:50;
+  background:var(--topbar);
+  backdrop-filter:blur(32px) saturate(200%);
+  -webkit-backdrop-filter:blur(32px) saturate(200%);
+  border-bottom:1px solid var(--topbord);
+  box-shadow:inset 0 1px 0 var(--topshine);
+}
 .topbar-in{display:flex;align-items:center;gap:10px;height:64px}
 .logo{width:38px;height:38px;border-radius:11px;background:linear-gradient(135deg,#4f6af0,#7a5cf0);color:#fff;display:grid;place-items:center;font-weight:800;font-size:12.5px;flex-shrink:0}
 .brand-t b{display:block;font-size:15px;font-weight:700;line-height:1.2}
@@ -50,11 +60,16 @@ button{font-family:inherit}
 .clockbox .ct{color:var(--text);font-size:14.5px;font-variant-numeric:tabular-nums}
 .hbtn{display:flex;flex-direction:column;align-items:center;gap:2px;flex-shrink:0}
 .blabel{font-size:9px;font-weight:600;color:var(--text2);opacity:.75;line-height:1;letter-spacing:.02em;user-select:none}
-.iconbtn{width:40px;height:40px;border-radius:12px;border:1px solid var(--border);background:var(--topbtn);color:var(--text);display:grid;place-items:center;cursor:pointer;transition:.18s;flex-shrink:0;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.iconbtn{width:40px;height:40px;border-radius:12px;border:1px solid var(--topbord);background:var(--topbtn);color:var(--text);display:grid;place-items:center;cursor:pointer;transition:.18s;flex-shrink:0;backdrop-filter:blur(18px) saturate(180%);-webkit-backdrop-filter:blur(18px) saturate(180%);box-shadow:inset 0 1px 0 var(--topshine)}
 .iconbtn:hover{background:var(--surface2)}
 .iconbtn.active{background:var(--accent);border-color:var(--accent);color:#fff}
 .iconbtn.sm{width:34px;height:34px;border-radius:10px}
 @media(max-width:680px){.brand-t span{display:none}}
+/* на телефоне стекло заметнее: меньше плотность, больше размытие */
+@media(max-width:768px){
+  .topbar{backdrop-filter:blur(40px) saturate(230%);-webkit-backdrop-filter:blur(40px) saturate(230%)}
+  .iconbtn{backdrop-filter:blur(26px) saturate(220%);-webkit-backdrop-filter:blur(26px) saturate(220%)}
+}
 
 /* ── Неделя ── */
 .semester{text-align:center;color:var(--text2);font-size:12.5px;font-weight:500;margin-top:18px}
@@ -68,13 +83,17 @@ button{font-family:inherit}
 .wtoday{border:none;background:var(--accent-soft);color:var(--accent);font-weight:700;font-size:13px;padding:9px 14px;border-radius:12px;cursor:pointer;transition:.15s}
 .wtoday:hover{filter:brightness(1.05)}
 
-/* ── Дни: вкладки-сегменты (листаются пальцем) ── */
+/* ── Дни: стеклянные вкладки-сегменты ── */
 .daynav{display:flex;align-items:center;gap:8px;margin:0 0 16px}
-.tabs{display:flex;gap:4px;flex:1;overflow-x:auto;scrollbar-width:none;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:4px;box-shadow:var(--shadow);touch-action:pan-y;-webkit-overflow-scrolling:touch}
+.tabs{display:flex;gap:4px;flex:1;overflow-x:auto;scrollbar-width:none;
+  background:var(--topbtn);border:1px solid var(--topbord);border-radius:14px;padding:4px;
+  box-shadow:inset 0 1px 0 var(--topshine);
+  backdrop-filter:blur(24px) saturate(200%);-webkit-backdrop-filter:blur(24px) saturate(200%);
+  touch-action:pan-y;-webkit-overflow-scrolling:touch}
 .tabs::-webkit-scrollbar{display:none}
 .tab{position:relative;flex:1;min-width:46px;display:flex;flex-direction:column;align-items:center;gap:1px;border:0;background:transparent;color:var(--text2);padding:8px 4px 7px;border-radius:10px;cursor:pointer;transition:background .15s,color .15s;line-height:1.15;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
 .tab:hover{color:var(--text);background:var(--surface2)}
-.tab.hint{background:var(--surface2);color:var(--text)}
+.tab.hint{background:var(--accent-soft);color:var(--accent)}
 .tab .tn{font-weight:700;font-size:13px;white-space:nowrap}
 .tab .td{font-size:11px;font-weight:600;opacity:.7;font-variant-numeric:tabular-nums}
 .tab.today .tn{color:var(--accent)}
@@ -188,7 +207,6 @@ body.editing .l-actions{display:flex}
 .modal{width:100%;max-width:480px;background:var(--surface);border:1px solid var(--border);border-radius:20px;box-shadow:0 24px 64px -16px rgba(0,0,0,.4);transform:translateY(14px) scale(.98);transition:.22s;max-height:90vh;display:flex;flex-direction:column}
 .overlay.open .modal{transform:none}
 .modal.small{max-width:440px}
-/* карта: почти весь экран */
 .modal.mapm{max-width:98vw;width:98vw;height:96dvh;max-height:96dvh}
 .modal.mapm .m-body{flex:1;min-height:0;overflow:hidden;padding-bottom:14px}
 .overlay.mapfull{padding:0}
@@ -273,7 +291,7 @@ input.invalid{border-color:var(--danger)!important;box-shadow:0 0 0 3px rgba(220
 .mapstatus.err{color:var(--danger)}
 .mapstatus.busy{color:var(--accent)}
 .mapnotice{background:var(--accent-soft);color:var(--accent);border-radius:10px;padding:9px 13px;font-size:13px;font-weight:500}
-#mapHintNote{flex-shrink:0}
+#pdfHint{flex-shrink:0}
 
 footer{max-width:820px;margin:26px auto 40px;padding:0 16px;color:var(--text2);font-size:12.5px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
 footer button{background:none;border:none;color:var(--text2);cursor:pointer;font:inherit;font-size:12.5px;text-decoration:underline;text-underline-offset:3px;font-weight:600}
@@ -605,9 +623,46 @@ const ICONS={
 const ic=(n,s=16)=>`<svg class="ic" width="${s}" height="${s}" viewBox="0 0 24 24">${ICONS[n]}</svg>`;
 
 /* ══════════════ КАРТА ЭТАЖЕЙ: встроенный PDF ══════════════ */
+/* сюда можно зашить PDF (base64), тогда карты будут даже без floors.pdf */
 const EMBEDDED_PDF='';
 
-let pdfBlobURL=null, mapTokens=[], memPdf=null;
+/* страница PDF для каждого этажа: 1 стр — титул, 2 — 1 эт., 3 — 2 эт., 4 — 5 эт., 5 — 6 эт., 6 — 7 эт. */
+const PDF_PAGE={1:2,2:3,5:4,6:5,7:6};
+
+let pdfBlobURL=null, mapTokens=[], memPdf=null, mapFloor=null, mapPage=null;
+
+/* аудитория → этаж */
+function roomFloor(tok){
+  const t=(tok||'').replace(/\s+/g,'').toUpperCase();
+  let m;
+  if(t.indexOf('П-')===0||t.indexOf('P-')===0){
+    m=/^[ПP]-(\d+)/.exec(t);
+    if(!m)return null;
+    const n=+m[1];
+    if(n===3||n===4||n===5||n===6||n===13||n===14)return 1;
+    if(n===8||n===9||n===12)return 2;
+    return null;
+  }
+  if(t.indexOf('МЗ')===0||t.indexOf('M3')===0)return 1;
+  if(t.indexOf('М-')===0)return null;
+  m=/^(\d{1,3})/.exec(t);
+  if(m){
+    const n=+m[1];
+    if(n>=500&&n<=599)return 5;
+    if(n>=600&&n<=699)return 6;
+    if(n>=700&&n<=799)return 7;
+    if(n>=60&&n<=69)return 6;
+    if(n>=70&&n<=79)return 7;
+  }
+  return null;
+}
+function floorFromTokens(tokens){
+  for(const t of tokens){
+    const f=roomFloor(t);
+    if(f)return f;
+  }
+  return null;
+}
 
 function fileToBuf(file){
   return new Promise((res,rej)=>{
@@ -663,8 +718,10 @@ async function bufToURL(rec){
   }
   return null;
 }
-function showViewer(url,name,hint){
-  $('#pdfFrame').src=url;
+function showViewer(url,name,hint,pagenum){
+  let full=url;
+  if(pagenum)full=url+'#page='+pagenum;
+  $('#pdfFrame').src=full;
   $('#pdfName').textContent=name;
   $('#pdfHint').textContent=hint||'Планы 1, 2, 5, 6 и 7 этажей. Левая половина — Северная, правая — Южная.';
   $('#pdfUI').style.display='flex';
@@ -681,43 +738,57 @@ async function trySiblingPdf(){
     return r.ok;
   }catch(e){ return false; }
 }
-async function loadMapUI(){
+/* возвращает src показанного PDF либо null */
+async function loadMapUI(pagenum){
+  let src=null,name='',hint='';
   if(EMBEDDED_PDF&&EMBEDDED_PDF.length>100){
-    const url=await bufToURL({data:'data:application/pdf;base64,'+EMBEDDED_PDF});
-    if(url){
-      showViewer(url,'Карты этажей (встроены в сайт)','PDF зашит прямо в HTML — откроется у любого пользователя.');
+    src=await bufToURL({data:'data:application/pdf;base64,'+EMBEDDED_PDF});
+    if(src){
+      name='Карты этажей (встроены в сайт)';
+      hint='PDF зашит прямо в HTML — откроется у любого пользователя.';
       $('#pdfRemove').style.display='none';
-      showMapNotice(); return;
     }
   }
-  if(location.protocol==='http:'||location.protocol==='https:'){
+  if(!src&&(location.protocol==='http:'||location.protocol==='https:')){
     if(await trySiblingPdf()){
       releasePdfURL();
-      showViewer(PDF_SIB,'floors.pdf','Загружен с сервера — общий для всех посетителей сайта.');
+      src=PDF_SIB;
+      name='floors.pdf';
+      hint='Загружен с сервера — общий для всех посетителей сайта.';
       $('#pdfRemove').style.display='none';
-      showMapNotice(); return;
     }
   }
-  const rec=await getStoredPdf();
-  if(rec){
-    const url=await bufToURL(rec);
-    if(url){
-      showViewer(url,rec.name,rec.persist
-        ?'Файл сохранён в этом браузере и откроется здесь сам при каждом запуске.'
-        :'Файл сохранён только до перезагрузки страницы.');
-      $('#pdfRemove').style.display=rec.persist?'':'none';
-      showMapNotice(); return;
+  if(!src){
+    const rec=await getStoredPdf();
+    if(rec){
+      src=await bufToURL(rec);
+      if(src){
+        name=rec.name;
+        hint=rec.persist
+          ?'Файл сохранён в этом браузере и откроется здесь сам при каждом запуске.'
+          :'Файл сохранён только до перезагрузки страницы.';
+        $('#pdfRemove').style.display=rec.persist?'':'none';
+      }
     }
   }
-  $('#pdfRemove').style.display='none';
-  showZone(); setMapStatus('');
+  if(!src){
+    $('#pdfRemove').style.display='none';
+    showZone(); setMapStatus('');
+    showMapNotice();
+    return null;
+  }
+  showViewer(src,name,hint,pagenum);
   showMapNotice();
+  return src;
 }
 function showMapNotice(){
   const n=$('#mapNotice');
   if(mapTokens.length){
+    let msg='Ищем: '+mapTokens.join(', ');
+    if(mapFloor&&mapPage)msg+=' · этаж '+mapFloor+' — откроется страница '+mapPage+' из 6';
+    else msg+=' · на планах этаж не определён, посмотрите все страницы';
     n.style.display='';
-    n.textContent='Найдите на планах PDF: '+mapTokens.join(', ');
+    n.textContent=msg;
   }else n.style.display='none';
 }
 async function saveMapPdf(file){
@@ -731,7 +802,7 @@ async function saveMapPdf(file){
     try{localStorage.removeItem(PDF_LS);}catch(e){}
     memPdf=null;
     setMapStatus('Сохранено ✓ ('+fmtBytes(file.size)+')','ok');
-    await loadMapUI();
+    await loadMapUI(mapPage);
     return;
   }catch(e){}
   if(file.size<=3500000){
@@ -740,13 +811,13 @@ async function saveMapPdf(file){
       localStorage.setItem(PDF_LS,JSON.stringify({name:file.name,data:du}));
       memPdf=null;
       setMapStatus('Сохранено ✓ ('+fmtBytes(file.size)+')','ok');
-      await loadMapUI();
+      await loadMapUI(mapPage);
       return;
     }catch(e){}
   }
   memPdf={buf:buf,mime:'application/pdf',name:file.name};
   setMapStatus('Файл открыт, но браузер не дал сохранить его — планы будут работать до перезагрузки страницы.','ok');
-  await loadMapUI();
+  await loadMapUI(mapPage);
 }
 function removeMapPdf(){
   idbDel(PDF_KEY).catch(()=>{});
@@ -754,6 +825,7 @@ function removeMapPdf(){
   memPdf=null;
   releasePdfURL();
   mapTokens=[];
+  mapFloor=null; mapPage=null;
   loadMapUI();
 }
 
@@ -1565,27 +1637,34 @@ TYPES.forEach(t=>{const o=document.createElement('option');o.value=t.k;o.textCon
 /* ── Карта: PDF ── */
 function openMap(tokens){
   mapTokens=Array.isArray(tokens)?tokens:[];
+  mapFloor=floorFromTokens(mapTokens);
+  mapPage=mapFloor?PDF_PAGE[mapFloor]:null;
+  /* телефон: открываем PDF сразу в новой вкладке, на странице нужного этажа */
+  if(window.matchMedia('(max-width:768px)').matches){
+    loadMapUI(mapPage).then(src=>{
+      if(src){
+        let u=src;
+        if(mapPage)u=src+'#page='+mapPage;
+        window.open(u,'_blank');
+      }else{
+        /* PDF ещё не подключён — показываем окно загрузки */
+        $('#mapOverlay').classList.add('open');
+        document.body.style.overflow='hidden';
+      }
+    });
+    return;
+  }
+  /* компьютер: окно с PDF, прыжок на страницу этажа */
   $('#mapOverlay').classList.add('open');
   document.body.style.overflow='hidden';
-  loadMapUI();
-  /* на телефоне сразу во весь экран */
-  if(window.matchMedia('(max-width:768px)').matches){
-    setTimeout(()=>{
-      try{
-        const md=document.querySelector('#mapOverlay .modal');
-        if(md&&md.requestFullscreen&&!document.fullscreenElement)md.requestFullscreen();
-      }catch(e){}
-    },250);
-  }
-}
-function exitMapFull(){
-  try{ if(document.fullscreenElement)document.exitFullscreen(); }catch(e){}
+  loadMapUI(mapPage);
 }
 function closeMap(){
   $('#mapOverlay').classList.remove('open');
   $('#pdfFrame').src='about:blank';
   releasePdfURL();
-  exitMapFull();
+  try{ if(document.fullscreenElement)document.exitFullscreen(); }catch(e){}
+  $('#mapOverlay').classList.remove('mapfull');
   unlockScroll();
 }
  $('#mapBtn').onclick=()=>openMap([]);
@@ -1608,7 +1687,7 @@ mapBody.addEventListener('drop',e=>{
  $('#pdfSibling').onclick=()=>{
   releasePdfURL();
   showViewer(PDF_SIB,'floors.pdf (из папки сайта)',
-    'Если планы не открылись — файла floors.pdf нет рядом с сайтом. Либо используйте «Способ 2».');
+    'Если планы не открылись — файла floors.pdf нет рядом с сайтом. Либо используйте «Способ 2».',mapPage);
   $('#pdfRemove').style.display='none';
   showMapNotice();
 };
@@ -1637,7 +1716,7 @@ document.addEventListener('fullscreenchange',()=>{
 
 document.addEventListener('keydown',e=>{
   if(e.key==='Escape'){
-    if(document.fullscreenElement&&$('#mapOverlay').classList.contains('open'))return; /* пусть Esc закрывает fullscreen */
+    if(document.fullscreenElement&&$('#mapOverlay').classList.contains('open'))return;
     if($('#resetOverlay').classList.contains('open')){closeReset();return;}
     if($('#hwOverlay').classList.contains('open')){closeHw();return;}
     if($('#booksOverlay').classList.contains('open')){closeBooks();return;}
@@ -1653,7 +1732,7 @@ document.addEventListener('keydown',e=>{
 });
 
 /* ── Свайпы в стиле Telegram ── */
-/* 1) палец скользит по вкладкам дней — активный день следует за пальцем */
+/* 1) палец скользит по вкладкам дней — день следует за пальцем */
 (function(){
   const strip=$('#tabs'); let on=false;
   strip.addEventListener('touchstart',()=>{on=true;},{passive:true});
@@ -1669,7 +1748,7 @@ document.addEventListener('keydown',e=>{
   strip.addEventListener('touchcancel',()=>{on=false;},{passive:true});
 })();
 
-/* 2) свайп по содержимому дня: страница тянется за пальцем, вкладка-сосед подсвечивается */
+/* 2) свайп по расписанию: страница тянется за пальцем, вкладка-сосед подсвечивается */
 (function(){
   const dv=$('#dayView'), strip=$('#tabs');
   let sx=0,sy=0,on=false,lock=null,dx=0,curHint=null;
@@ -1714,7 +1793,6 @@ document.addEventListener('keydown',e=>{
     const dir=dx<0?1:-1;
     clearHint();
     if(moved){
-      /* переключение: goDay сам проигрывает анимацию смены дня */
       dayIdx+=dir;
       if(dayIdx>6){dayIdx=0;weekOffset++;}
       if(dayIdx<0){dayIdx=6;weekOffset--;}
