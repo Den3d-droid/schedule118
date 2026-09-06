@@ -586,7 +586,10 @@ const ICONS={
 const ic=(n,s=16)=>`<svg class="ic" width="${s}" height="${s}" viewBox="0 0 24 24">${ICONS[n]}</svg>`;
 
 /* ══════════════ КАРТА ЭТАЖЕЙ: встроенный PDF ══════════════ */
-let pdfBlobURL=null, mapTokens=[], memPdf=null, curSrc={type:null,url:null,name:''};
+/* ══════════════ КАРТА ЭТАЖЕЙ: встроенный PDF ══════════════ */
+const EMBEDDED_PDF='';
+
+let pdfBlobURL=null, mapTokens=[], memPdf=null;
 
 function fileToBuf(file){
   return new Promise((res,rej)=>{
@@ -629,7 +632,6 @@ async function getStoredPdf(){
 }
 async function bufToURL(rec){
   releasePdfURL();
-  if(rec.url)return rec.url;
   if(rec.data){
     try{
       const blob=await (await fetch(rec.data)).blob();
@@ -643,32 +645,68 @@ async function bufToURL(rec){
   }
   return null;
 }
+function ensureFsBtn(){
+  const bar=document.querySelector('#pdfUI .pdfbar');
+  if(!bar||document.getElementById('pdfFsBtn'))return;
+  const b=document.createElement('button');
+  b.className='btn ghost'; b.id='pdfFsBtn'; b.textContent='На весь экран';
+  b.onclick=()=>{
+    const el=document.querySelector('#mapOverlay .modal');
+    if(document.fullscreenElement){document.exitFullscreen();}
+    else if(el&&el.requestFullscreen){el.requestFullscreen();}
+  };
+  const grow=bar.querySelector('.grow');
+  if(grow)grow.insertAdjacentElement('afterend',b); else bar.appendChild(b);
+}
 function showViewer(url,name,hint){
   $('#pdfFrame').src=url;
   $('#pdfName').textContent=name;
-  $('#pdfHint').textContent=hint||'Планы 1, 2, 5, 6 и 7 этажей. Левая половина — Северная, правая — Южная. ★ — лестницы, М/Ж — туалеты.';
+  $('#pdfHint').textContent=hint||'Планы 1, 2, 5, 6 и 7 этажей. Левая половина — Северная, правая — Южная.';
   $('#pdfUI').style.display='flex';
   $('#pdfZone').style.display='none';
+  ensureFsBtn();
 }
 function showZone(){
   $('#pdfFrame').src='about:blank';
   $('#pdfUI').style.display='none';
   $('#pdfZone').style.display='flex';
 }
+async function trySiblingPdf(){
+  try{
+    const r=await fetch(PDF_SIB,{method:'HEAD'});
+    return r.ok;
+  }catch(e){ return false; }
+}
 async function loadMapUI(){
+  if(EMBEDDED_PDF&&EMBEDDED_PDF.length>100){
+    const url=await bufToURL({data:'data:application/pdf;base64,'+EMBEDDED_PDF});
+    if(url){
+      showViewer(url,'Карты этажей (встроены в сайт)','PDF зашит прямо в HTML — откроется у любого пользователя.');
+      $('#pdfRemove').style.display='none';
+      showMapNotice(); return;
+    }
+  }
+  if(location.protocol==='http:'||location.protocol==='https:'){
+    if(await trySiblingPdf()){
+      releasePdfURL();
+      showViewer(PDF_SIB,'floors.pdf','Загружен с сервера — общий для всех посетителей сайта.');
+      $('#pdfRemove').style.display='none';
+      showMapNotice(); return;
+    }
+  }
   const rec=await getStoredPdf();
   if(rec){
     const url=await bufToURL(rec);
     if(url){
-      showViewer(url,rec.name,rec.persist?'Файл сохранён в браузере и откроется здесь сам при каждом запуске.':'Файл сохранён только до перезагрузки страницы (браузер не дал долговременное хранение).');
+      showViewer(url,rec.name,rec.persist
+        ?'Файл сохранён в этом браузере и откроется здесь сам при каждом запуске.'
+        :'Файл сохранён только до перезагрузки страницы.');
       $('#pdfRemove').style.display=rec.persist?'':'none';
-      showMapNotice();
-      return;
+      showMapNotice(); return;
     }
   }
   $('#pdfRemove').style.display='none';
-  showZone();
-  setMapStatus('');
+  showZone(); setMapStatus('');
   showMapNotice();
 }
 function showMapNotice(){
@@ -703,7 +741,7 @@ async function saveMapPdf(file){
     }catch(e){}
   }
   memPdf={buf:buf,mime:'application/pdf',name:file.name};
-  setMapStatus('Файл открыт, но браузер не дал сохранить его — планы будут работать до перезагрузки страницы. Сохранено: '+fmtBytes(file.size),'ok');
+  setMapStatus('Файл открыт, но браузер не дал сохранить его — планы будут работать до перезагрузки страницы.','ok');
   await loadMapUI();
 }
 function removeMapPdf(){
