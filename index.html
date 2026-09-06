@@ -44,13 +44,7 @@ button{font-family:inherit}
 .wrap{max-width:820px;margin:0 auto;padding:0 16px}
 
 /* ── Шапка: жидкое стекло ── */
-.topbar{position:sticky;top:0;z-index:50;
-  background:var(--topbar);
-  backdrop-filter:blur(32px) saturate(200%);
-  -webkit-backdrop-filter:blur(32px) saturate(200%);
-  border-bottom:1px solid var(--topbord);
-  box-shadow:inset 0 1px 0 var(--topshine);
-}
+.topbar{position:sticky;top:0;z-index:50;background:var(--topbar);backdrop-filter:blur(32px) saturate(200%);-webkit-backdrop-filter:blur(32px) saturate(200%);border-bottom:1px solid var(--topbord);box-shadow:inset 0 1px 0 var(--topshine)}
 .topbar-in{display:flex;align-items:center;gap:10px;height:64px}
 .logo{width:38px;height:38px;border-radius:11px;background:linear-gradient(135deg,#4f6af0,#7a5cf0);color:#fff;display:grid;place-items:center;font-weight:800;font-size:12.5px;flex-shrink:0}
 .brand-t b{display:block;font-size:15px;font-weight:700;line-height:1.2}
@@ -65,7 +59,6 @@ button{font-family:inherit}
 .iconbtn.active{background:var(--accent);border-color:var(--accent);color:#fff}
 .iconbtn.sm{width:34px;height:34px;border-radius:10px}
 @media(max-width:680px){.brand-t span{display:none}}
-/* на телефоне стекло заметнее: меньше плотность, больше размытие */
 @media(max-width:768px){
   .topbar{backdrop-filter:blur(40px) saturate(230%);-webkit-backdrop-filter:blur(40px) saturate(230%)}
   .iconbtn{backdrop-filter:blur(26px) saturate(220%);-webkit-backdrop-filter:blur(26px) saturate(220%)}
@@ -83,13 +76,9 @@ button{font-family:inherit}
 .wtoday{border:none;background:var(--accent-soft);color:var(--accent);font-weight:700;font-size:13px;padding:9px 14px;border-radius:12px;cursor:pointer;transition:.15s}
 .wtoday:hover{filter:brightness(1.05)}
 
-/* ── Дни: стеклянные вкладки-сегменты ── */
+/* ── Дни: стеклянные вкладки ── */
 .daynav{display:flex;align-items:center;gap:8px;margin:0 0 16px}
-.tabs{display:flex;gap:4px;flex:1;overflow-x:auto;scrollbar-width:none;
-  background:var(--topbtn);border:1px solid var(--topbord);border-radius:14px;padding:4px;
-  box-shadow:inset 0 1px 0 var(--topshine);
-  backdrop-filter:blur(24px) saturate(200%);-webkit-backdrop-filter:blur(24px) saturate(200%);
-  touch-action:pan-y;-webkit-overflow-scrolling:touch}
+.tabs{display:flex;gap:4px;flex:1;overflow-x:auto;scrollbar-width:none;background:var(--topbtn);border:1px solid var(--topbord);border-radius:14px;padding:4px;box-shadow:inset 0 1px 0 var(--topshine);backdrop-filter:blur(24px) saturate(200%);-webkit-backdrop-filter:blur(24px) saturate(200%);touch-action:pan-y;-webkit-overflow-scrolling:touch}
 .tabs::-webkit-scrollbar{display:none}
 .tab{position:relative;flex:1;min-width:46px;display:flex;flex-direction:column;align-items:center;gap:1px;border:0;background:transparent;color:var(--text2);padding:8px 4px 7px;border-radius:10px;cursor:pointer;transition:background .15s,color .15s;line-height:1.15;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
 .tab:hover{color:var(--text);background:var(--surface2)}
@@ -115,7 +104,6 @@ button{font-family:inherit}
 .hint{display:flex;align-items:flex-start;gap:9px;background:var(--accent-soft);color:var(--accent);border-radius:12px;padding:10px 14px;font-size:13.5px;font-weight:500;margin-bottom:12px}
 .hint .ic{flex-shrink:0;margin-top:1px}
 
-/* ── Баннеры ── */
 .banner{display:flex;gap:14px;align-items:flex-start;background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:20px 18px;box-shadow:var(--shadow);margin-bottom:12px}
 .banner .b-ic{font-size:30px;line-height:1}
 .banner b{display:block;font-size:16.5px;margin-bottom:3px}
@@ -129,7 +117,6 @@ button{font-family:inherit}
 @keyframes slideR{from{opacity:0;transform:translateX(26px)}to{opacity:1;transform:none}}
 @keyframes slideL{from{opacity:0;transform:translateX(-26px)}to{opacity:1;transform:none}}
 
-/* ── Цвет по типу пары ── */
 .t-lec {--tag:#6366f1;--tagbg:rgba(99,102,241,.13); --tagb:rgba(99,102,241,.3)}
 .t-sem {--tag:#0d9488;--tagbg:rgba(13,148,136,.13); --tagb:rgba(13,148,136,.3)}
 .t-prac{--tag:#2563eb;--tagbg:rgba(37,99,235,.13);  --tagb:rgba(37,99,235,.3)}
@@ -143,7 +130,6 @@ button{font-family:inherit}
 [data-theme="dark"] .t-con {--tag:#f472b6;--tagbg:rgba(244,114,182,.16);--tagb:rgba(244,114,182,.35)}
 [data-theme="dark"] .t-oth {--tag:#94a3b8;--tagbg:rgba(148,163,184,.16);--tagb:rgba(148,163,184,.35)}
 
-/* ── Пары ── */
 .lessons{list-style:none;display:flex;flex-direction:column;gap:10px}
 .lesson{position:relative;display:flex;gap:14px;background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:13px 16px;box-shadow:var(--shadow);transition:transform .18s,opacity .3s}
 .lesson::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--tag,var(--accent))}
@@ -174,7 +160,6 @@ button{font-family:inherit}
 .l-meta.link:hover span{color:var(--accent);text-decoration:underline dotted}
 .ic{stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 
-/* ── ДЗ ── */
 .hw{margin-top:10px;background:var(--surface2);border-radius:10px;padding:8px 11px;display:flex;gap:9px;align-items:flex-start}
 .hw.empty{background:transparent;border:1.5px dashed var(--border);border-radius:10px;padding:7px 11px;cursor:pointer;color:var(--text2);font-size:13px;font-weight:500;align-items:center;transition:.18s;width:100%;text-align:left}
 .hw.empty:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
@@ -182,7 +167,6 @@ button{font-family:inherit}
 .hw-text{font-size:13.5px;line-height:1.5;flex:1;cursor:pointer;white-space:pre-wrap;word-break:break-word}
 .hw.done .hw-text{text-decoration:line-through;color:var(--text2)}
 
-/* ── Книги ── */
 .books{margin-top:8px;display:flex;gap:8px;align-items:center;width:100%;background:transparent;border:1.5px dashed var(--border);border-radius:10px;padding:7px 11px;color:var(--text2);font-size:13px;font-weight:500;cursor:pointer;text-align:left;transition:.18s}
 .books:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
 .books.has{border-style:solid;background:var(--surface2);border-color:var(--border);color:var(--text)}
@@ -191,7 +175,6 @@ button{font-family:inherit}
 .blist{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .bcnt{flex-shrink:0;font-size:11.5px;font-weight:700;color:var(--tag,var(--accent));background:var(--surface);border:1px solid var(--border);border-radius:999px;padding:1px 7px}
 
-/* ── Кнопки карточки ── */
 .l-actions{display:none;flex-shrink:0;gap:6px;align-items:flex-start}
 body.editing .l-actions{display:flex}
 .minibtn{width:32px;height:32px;border-radius:9px;border:1px solid var(--border);background:var(--surface);display:grid;place-items:center;cursor:pointer;color:var(--text2);transition:.15s}
@@ -201,16 +184,11 @@ body.editing .l-actions{display:flex}
 .add-lesson{width:100%;padding:14px;border:1.5px dashed var(--border);border-radius:16px;background:transparent;color:var(--text2);font-weight:600;font-size:14px;cursor:pointer;margin-top:10px;display:flex;align-items:center;justify-content:center;gap:8px;transition:.18s}
 .add-lesson:hover{color:var(--accent);border-color:var(--accent);background:var(--accent-soft)}
 
-/* ── Модалки ── */
 .overlay{position:fixed;inset:0;background:rgba(8,10,14,.55);backdrop-filter:blur(3px);display:grid;place-items:center;padding:16px;z-index:100;opacity:0;pointer-events:none;transition:.2s}
 .overlay.open{opacity:1;pointer-events:auto}
 .modal{width:100%;max-width:480px;background:var(--surface);border:1px solid var(--border);border-radius:20px;box-shadow:0 24px 64px -16px rgba(0,0,0,.4);transform:translateY(14px) scale(.98);transition:.22s;max-height:90vh;display:flex;flex-direction:column}
 .overlay.open .modal{transform:none}
 .modal.small{max-width:440px}
-.modal.mapm{max-width:98vw;width:98vw;height:96dvh;max-height:96dvh}
-.modal.mapm .m-body{flex:1;min-height:0;overflow:hidden;padding-bottom:14px}
-.overlay.mapfull{padding:0}
-.overlay.mapfull .modal.mapm{width:100vw;max-width:100vw;height:100dvh;max-height:100dvh;border-radius:0;border:none}
 .m-head{display:flex;align-items:center;justify-content:space-between;padding:18px 20px 0}
 .m-head h3{font-size:17px;font-weight:700;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .m-body{padding:14px 20px 4px;overflow:auto;display:flex;flex-direction:column;gap:12px}
@@ -253,7 +231,6 @@ input.invalid{border-color:var(--danger)!important;box-shadow:0 0 0 3px rgba(220
 .bklist .minibtn{width:28px;height:28px;border-radius:8px}
 .bknote{font-size:12px;color:var(--text2)}
 
-/* ── Календарь ── */
 .cal-modal{max-width:420px}
 .cal-nav{display:flex;align-items:center;justify-content:space-between;gap:8px}
 .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
@@ -274,24 +251,33 @@ input.invalid{border-color:var(--danger)!important;box-shadow:0 0 0 3px rgba(220
 .lg-kd{background:rgba(139,92,246,.35)}
 .lg-hw{background:var(--hw);border-radius:50%!important}
 
-/* ── Карта этажей: встроенный PDF ── */
-#pdfUI{flex-direction:column;gap:10px;flex:1;min-height:0;display:flex}
-.pdfbar{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.pdfbar .pname{font-size:12.5px;color:var(--text2);font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:280px}
-.pdfbar .grow{flex:1}
-.pdfview{flex:1;min-height:0;border:1px solid var(--border);border-radius:12px;overflow:hidden;background:var(--surface2)}
-.pdfview iframe,.pdfview embed{width:100%;height:100%;border:0;display:block}
-.pdfzone{border:2px dashed var(--border);border-radius:14px;padding:30px 20px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:11px;transition:.18s}
+/* ── Карта этажей: полноэкранный просмотрщик PDF (canvas + pinch-zoom) ── */
+#mapOverlay{padding:0}
+#mapOverlay .modal{width:100vw;max-width:100vw;height:100dvh;max-height:100dvh;border-radius:0;border:none}
+#mapOverlay .m-head{padding:12px 14px 0;gap:8px}
+#mapOverlay .m-head h3{font-size:15px}
+.map-tools{display:flex;align-items:center;gap:6px;flex-shrink:0}
+.mp-label{font-size:12.5px;font-weight:700;color:var(--text2);white-space:nowrap;min-width:86px;text-align:center;font-variant-numeric:tabular-nums}
+#mapBody{flex:1;min-height:0;overflow:hidden;padding:10px 14px 14px;gap:10px}
+.mapnotice{background:var(--accent-soft);color:var(--accent);border-radius:10px;padding:9px 13px;font-size:13px;font-weight:500;flex-shrink:0}
+.mapview{flex:1;min-height:0;position:relative;overflow:hidden;border:1px solid var(--border);border-radius:12px;background:var(--bg);touch-action:none;cursor:grab}
+.mapview:active{cursor:grabbing}
+.mapstage{position:absolute;inset:0;display:grid;place-items:center;overflow:hidden}
+#mapCanvas{transform-origin:center center;background:#fff;box-shadow:0 6px 24px -8px rgba(0,0,0,.25)}
+.maploading{flex:1;display:flex;align-items:center;justify-content:center;color:var(--text2);font-weight:600;font-size:14px;gap:10px}
+.spinner{width:22px;height:22px;border:3px solid var(--accent-soft);border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.mapadmin{display:flex;gap:8px;flex-wrap:wrap;flex-shrink:0}
+.mapadmin .btn{padding:7px 12px;font-size:12.5px}
+.pdfzone{border:2px dashed var(--border);border-radius:14px;padding:26px 18px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:11px;transition:.18s;overflow:auto}
 .pdfzone.drag{border-color:var(--accent);background:var(--accent-soft)}
-.pdfzone .pz-ic{font-size:36px;line-height:1}
-.pdfzone b{font-size:15.5px}
+.pdfzone .pz-ic{font-size:34px;line-height:1}
+.pdfzone b{font-size:15px}
 .pdfzone p{color:var(--text2);font-size:13px;line-height:1.5;max-width:460px}
 .mapstatus{min-height:18px;font-size:13px;font-weight:600}
 .mapstatus.ok{color:var(--ok)}
 .mapstatus.err{color:var(--danger)}
 .mapstatus.busy{color:var(--accent)}
-.mapnotice{background:var(--accent-soft);color:var(--accent);border-radius:10px;padding:9px 13px;font-size:13px;font-weight:500}
-#pdfHint{flex-shrink:0}
 
 footer{max-width:820px;margin:26px auto 40px;padding:0 16px;color:var(--text2);font-size:12.5px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
 footer button{background:none;border:none;color:var(--text2);cursor:pointer;font:inherit;font-size:12.5px;text-decoration:underline;text-underline-offset:3px;font-weight:600}
@@ -479,34 +465,40 @@ footer button:hover{color:var(--danger)}
   </div>
 </div>
 
-<!-- Модалка: карта этажей (PDF) -->
+<!-- Модалка: карта этажей (полноэкранный просмотрщик PDF) -->
 <div class="overlay" id="mapOverlay">
-  <div class="modal mapm" role="dialog" aria-modal="true">
+  <div class="modal" role="dialog" aria-modal="true">
     <div class="m-head">
-      <h3>Карты этажей · ВМК МГУ</h3>
-      <button class="iconbtn sm" id="mapClose"></button>
+      <h3>Карты этажей</h3>
+      <div class="map-tools">
+        <button class="iconbtn sm" id="mpPrev" title="Предыдущая страница"></button>
+        <span class="mp-label" id="mpLabel">—</span>
+        <button class="iconbtn sm" id="mpNext" title="Следующая страница"></button>
+        <button class="iconbtn sm" id="mpZoom" title="Сбросить масштаб"></button>
+        <button class="iconbtn sm" id="mpNewTab" title="Открыть в новой вкладке"></button>
+        <button class="iconbtn sm" id="mapClose" title="Закрыть"></button>
+      </div>
     </div>
     <div class="m-body" id="mapBody">
       <div id="mapNotice" class="mapnotice" style="display:none"></div>
 
-      <div id="pdfUI" style="display:none">
-        <div class="pdfbar">
-          <span class="pname" id="pdfName"></span>
-          <div class="grow"></div>
-          <button class="btn ghost" id="pdfFsBtn">На весь экран</button>
-          <button class="btn ghost" id="pdfNewTab">В новой вкладке</button>
-          <button class="btn ghost" id="pdfReplace">Заменить PDF</button>
-          <button class="btn danger-ghost" id="pdfRemove" style="display:none">Удалить</button>
-        </div>
-        <div class="pdfview"><iframe id="pdfFrame" title="Карты этажей"></iframe></div>
-        <p class="mnote" id="pdfHint">Планы 1, 2, 5, 6 и 7 этажей. Левая половина — Северная, правая — Южная. ★ — лестницы, М/Ж — туалеты.</p>
+      <div id="mapView" class="mapview" style="display:none">
+        <div class="mapstage"><canvas id="mapCanvas"></canvas></div>
       </div>
 
-      <div id="pdfZone" class="pdfzone" style="display:none">
+      <div id="mapLoading" class="maploading" style="display:none"><span class="spinner"></span><span>Загружаю план…</span></div>
+
+      <div id="mapAdmin" class="mapadmin" style="display:none">
+        <button class="btn ghost" id="mpChange">Сменить PDF</button>
+        <button class="btn danger-ghost" id="mpDelete">Удалить PDF</button>
+        <span class="bknote" id="mpSrc"></span>
+      </div>
+
+      <div id="mapSetup" class="pdfzone" style="display:none">
         <span class="pz-ic">🗺️</span>
         <b>Подключите PDF с картами этажей</b>
-        <p><b>Способ 1 (без загрузки, самый надёжный):</b> положите ваш PDF рядом с файлом сайта под именем <b>floors.pdf</b> и нажмите кнопку ниже. На GitHub Pages он подхватится автоматически.</p>
-        <button class="btn primary" id="pdfSibling">Открыть floors.pdf из папки сайта</button>
+        <p><b>Способ 1:</b> положите PDF рядом с файлом сайта под именем <b>floors.pdf</b> и нажмите кнопку ниже (на GitHub Pages он подхватится сам).</p>
+        <button class="btn primary" id="mpSibling">Открыть floors.pdf из папки сайта</button>
         <p style="margin-top:6px"><b>Способ 2:</b> выберите PDF вручную — он один раз сохранится в браузере и дальше будет открываться здесь сам. Можно перетащить файл в это окно.</p>
         <input type="file" id="mapPdfInput" class="filepick" style="max-width:360px">
         <div class="mapstatus" id="mapStatus"></div>
@@ -618,20 +610,20 @@ const ICONS={
   book:'<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>',
   file:'<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/>',
   download:'<path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/>',
+  reset:'<path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/>',
   x:'<path d="M18 6L6 18M6 6l12 12"/>'
 };
 const ic=(n,s=16)=>`<svg class="ic" width="${s}" height="${s}" viewBox="0 0 24 24">${ICONS[n]}</svg>`;
 
-/* ══════════════ КАРТА ЭТАЖЕЙ: встроенный PDF ══════════════ */
-/* сюда можно зашить PDF (base64), тогда карты будут даже без floors.pdf */
+/* ══════════════ КАРТА ЭТАЖЕЙ: pdf.js, фуллскрин, pinch-zoom ══════════════ */
 const EMBEDDED_PDF='';
-
-/* страница PDF для каждого этажа: 1 стр — титул, 2 — 1 эт., 3 — 2 эт., 4 — 5 эт., 5 — 6 эт., 6 — 7 эт. */
+/* страница PDF с планом этажа: 1 — титул, 2 — 1 эт., 3 — 2 эт., 4 — 5 эт., 5 — 6 эт., 6 — 7 эт. */
 const PDF_PAGE={1:2,2:3,5:4,6:5,7:6};
 
-let pdfBlobURL=null, mapTokens=[], memPdf=null, mapFloor=null, mapPage=null;
+let mapTokens=[],mapFloor=null,mapPage=null;
+let pdfDoc=null,pdfPageNum=1,pdfRenderToken=0,currentDesc=null,lastBuf=null,pdfObjURL=null;
+let mapScale=1,mapTx=0,mapTy=0,mapCssW=0,mapCssH=0;
 
-/* аудитория → этаж */
 function roomFloor(tok){
   const t=(tok||'').replace(/\s+/g,'').toUpperCase();
   let m;
@@ -644,7 +636,6 @@ function roomFloor(tok){
     return null;
   }
   if(t.indexOf('МЗ')===0||t.indexOf('M3')===0)return 1;
-  if(t.indexOf('М-')===0)return null;
   m=/^(\d{1,3})/.exec(t);
   if(m){
     const n=+m[1];
@@ -685,13 +676,27 @@ function setMapStatus(text,cls){
   s.textContent=text||'';
   s.className='mapstatus'+(cls?' '+cls:'');
 }
-function releasePdfURL(){
-  if(pdfBlobURL){URL.revokeObjectURL(pdfBlobURL);pdfBlobURL=null;}
+async function fetchToBuf(src){
+  const r=await fetch(src);
+  if(!r.ok)throw new Error('HTTP '+r.status);
+  return await r.arrayBuffer();
 }
-async function getStoredPdf(){
+async function resolvePdfSource(){
+  if(EMBEDDED_PDF&&EMBEDDED_PDF.length>100){
+    try{
+      const r=await fetch('data:application/pdf;base64,'+EMBEDDED_PDF);
+      if(r.ok)return {buf:await r.arrayBuffer(),name:'Карты этажей (встроены в сайт)',persist:false};
+    }catch(e){}
+  }
+  if(location.protocol==='http:'||location.protocol==='https:'){
+    try{
+      const r=await fetch(PDF_SIB,{method:'HEAD'});
+      if(r.ok)return {url:PDF_SIB,name:'floors.pdf',persist:false};
+    }catch(e){}
+  }
   try{
     const rec=await idbGet(PDF_KEY);
-    if(rec&&rec.buf)return {buf:rec.buf,mime:rec.mime||'application/pdf',name:rec.name||'Карты этажей.pdf',persist:true};
+    if(rec&&rec.buf)return {buf:rec.buf,name:rec.name||'Карты этажей.pdf',persist:true};
   }catch(e){}
   try{
     const raw=localStorage.getItem(PDF_LS);
@@ -700,134 +705,233 @@ async function getStoredPdf(){
       if(p&&p.data)return {data:p.data,name:p.name||'Карты этажей.pdf',persist:true};
     }
   }catch(e){}
-  if(memPdf)return {buf:memPdf.buf,mime:memPdf.mime,name:memPdf.name,persist:false};
   return null;
 }
-async function bufToURL(rec){
-  releasePdfURL();
-  if(rec.data){
-    try{
-      const blob=await (await fetch(rec.data)).blob();
-      pdfBlobURL=URL.createObjectURL(blob);
-      return pdfBlobURL;
-    }catch(e){}
-  }
-  if(rec.buf){
-    pdfBlobURL=URL.createObjectURL(new Blob([rec.buf],{type:rec.mime||'application/pdf'}));
-    return pdfBlobURL;
-  }
-  return null;
+
+/* pdf.js с CDN — лениво, только при открытии карты */
+let pdfjsLoading=null;
+function ensurePdfJs(){
+  if(window.pdfjsLib)return Promise.resolve();
+  if(pdfjsLoading)return pdfjsLoading;
+  pdfjsLoading=new Promise((res,rej)=>{
+    const s=document.createElement('script');
+    s.src='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js';
+    s.onload=res;
+    s.onerror=()=>{pdfjsLoading=null;rej(new Error('не удалось загрузить просмотрщик (нет интернета?)'));};
+    document.head.appendChild(s);
+  }).then(()=>{
+    window.pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+  });
+  return pdfjsLoading;
 }
-function showViewer(url,name,hint,pagenum){
-  let full=url;
-  if(pagenum)full=url+'#page='+pagenum;
-  $('#pdfFrame').src=full;
-  $('#pdfName').textContent=name;
-  $('#pdfHint').textContent=hint||'Планы 1, 2, 5, 6 и 7 этажей. Левая половина — Северная, правая — Южная.';
-  $('#pdfUI').style.display='flex';
-  $('#pdfZone').style.display='none';
+
+function applyMapTransform(){
+  $('#mapCanvas').style.transform='translate('+mapTx+'px,'+mapTy+'px) scale('+mapScale+')';
 }
-function showZone(){
-  $('#pdfFrame').src='about:blank';
-  $('#pdfUI').style.display='none';
-  $('#pdfZone').style.display='flex';
+function clampMapT(){
+  const view=$('#mapView'),r=view.getBoundingClientRect();
+  const maxX=Math.max(0,(mapCssW*mapScale-r.width)/2+40);
+  const maxY=Math.max(0,(mapCssH*mapScale-r.height)/2+40);
+  mapTx=Math.min(maxX,Math.max(-maxX,mapTx));
+  mapTy=Math.min(maxY,Math.max(-maxY,mapTy));
 }
-async function trySiblingPdf(){
+function resetMapZoom(){mapScale=1;mapTx=0;mapTy=0;applyMapTransform();}
+function setZoomAround(sx,sy,newS){
+  newS=Math.min(6,Math.max(1,newS));
+  const r=$('#mapView').getBoundingClientRect();
+  const cx=r.left+r.width/2, cy=r.top+r.height/2;
+  const px=(sx-cx-mapTx)/mapScale, py=(sy-cy-mapTy)/mapScale;
+  mapScale=newS;
+  mapTx=sx-cx-px*mapScale;
+  mapTy=sy-cy-py*mapScale;
+  clampMapT(); applyMapTransform();
+}
+async function renderMapPage(n){
+  if(!pdfDoc)return;
+  pdfPageNum=Math.min(Math.max(1,n),pdfDoc.numPages);
+  const my=++pdfRenderToken;
+  const fl=mapFloor&&PDF_PAGE[mapFloor]===pdfPageNum?(' · этаж '+mapFloor):'';
+  $('#mpLabel').textContent=pdfPageNum+' / '+pdfDoc.numPages+fl;
+  const page=await pdfDoc.getPage(pdfPageNum);
+  if(my!==pdfRenderToken)return;
+  const box=$('#mapView').getBoundingClientRect();
+  const v1=page.getViewport({scale:1});
+  const fit=Math.max(0.1,Math.min((box.width-16)/v1.width,(box.height-16)/v1.height));
+  const dpr=Math.min(2.5,window.devicePixelRatio||1);
+  const canvas=$('#mapCanvas'),ctx=canvas.getContext('2d');
+  mapCssW=v1.width*fit; mapCssH=v1.height*fit;
+  canvas.width=Math.round(mapCssW*dpr);
+  canvas.height=Math.round(mapCssH*dpr);
+  canvas.style.width=Math.round(mapCssW)+'px';
+  canvas.style.height=Math.round(mapCssH)+'px';
+  await page.render({canvasContext:ctx,viewport:page.getViewport({scale:fit*dpr})}).promise;
+  if(my!==pdfRenderToken)return;
+  resetMapZoom();
+}
+async function loadWithDesc(desc){
+  $('#mapSetup').style.display='none';
+  $('#mapView').style.display='none';
+  $('#mapLoading').style.display='flex';
+  currentDesc=desc;
+  $('#mpDelete').style.display=desc.persist?'':'none';
+  $('#mpSrc').textContent=desc.name||'';
   try{
-    const r=await fetch(PDF_SIB,{method:'HEAD'});
-    return r.ok;
-  }catch(e){ return false; }
-}
-/* возвращает src показанного PDF либо null */
-async function loadMapUI(pagenum){
-  let src=null,name='',hint='';
-  if(EMBEDDED_PDF&&EMBEDDED_PDF.length>100){
-    src=await bufToURL({data:'data:application/pdf;base64,'+EMBEDDED_PDF});
-    if(src){
-      name='Карты этажей (встроены в сайт)';
-      hint='PDF зашит прямо в HTML — откроется у любого пользователя.';
-      $('#pdfRemove').style.display='none';
-    }
+    await ensurePdfJs();
+    let buf=desc.buf;
+    if(!buf&&desc.data)buf=await (await fetch(desc.data)).arrayBuffer();
+    if(!buf&&desc.url)buf=await fetchToBuf(desc.url);
+    lastBuf=buf;
+    if(pdfObjURL)URL.revokeObjectURL(pdfObjURL);
+    pdfObjURL=URL.createObjectURL(new Blob([buf],{type:'application/pdf'}));
+    pdfDoc=await window.pdfjsLib.getDocument({data:buf.slice(0)}).promise;
+    $('#mapLoading').style.display='none';
+    $('#mapView').style.display='block';
+    await renderMapPage(mapPage||1);
+  }catch(err){
+    $('#mapLoading').style.display='none';
+    $('#mapSetup').style.display='flex';
+    setMapStatus('Не удалось открыть PDF внутри сайта ('+(err&&err.message||'ошибка')+'). Попробуйте «Открыть в новой вкладке» — кнопка со стрелкой вверху.','err');
   }
-  if(!src&&(location.protocol==='http:'||location.protocol==='https:')){
-    if(await trySiblingPdf()){
-      releasePdfURL();
-      src=PDF_SIB;
-      name='floors.pdf';
-      hint='Загружен с сервера — общий для всех посетителей сайта.';
-      $('#pdfRemove').style.display='none';
-    }
-  }
-  if(!src){
-    const rec=await getStoredPdf();
-    if(rec){
-      src=await bufToURL(rec);
-      if(src){
-        name=rec.name;
-        hint=rec.persist
-          ?'Файл сохранён в этом браузере и откроется здесь сам при каждом запуске.'
-          :'Файл сохранён только до перезагрузки страницы.';
-        $('#pdfRemove').style.display=rec.persist?'':'none';
-      }
-    }
-  }
-  if(!src){
-    $('#pdfRemove').style.display='none';
-    showZone(); setMapStatus('');
-    showMapNotice();
-    return null;
-  }
-  showViewer(src,name,hint,pagenum);
-  showMapNotice();
-  return src;
 }
 function showMapNotice(){
   const n=$('#mapNotice');
   if(mapTokens.length){
     let msg='Ищем: '+mapTokens.join(', ');
-    if(mapFloor&&mapPage)msg+=' · этаж '+mapFloor+' — откроется страница '+mapPage+' из 6';
-    else msg+=' · на планах этаж не определён, посмотрите все страницы';
+    if(mapFloor&&mapPage)msg+=' · этаж '+mapFloor+' (страница '+mapPage+')';
+    else msg+=' · этаж не определён — посмотрите все страницы';
     n.style.display='';
     n.textContent=msg;
-  }else n.style.display='none';
+  }else{
+    n.style.display='';
+    n.textContent='Щипок или колесо мыши — масштаб · перетаскивание — передвинуть · ◀ ▶ — этажи · двойное нажатие — приблизить';
+  }
 }
-async function saveMapPdf(file){
+function openMap(tokens){
+  mapTokens=Array.isArray(tokens)?tokens:[];
+  mapFloor=floorFromTokens(mapTokens);
+  mapPage=mapFloor?PDF_PAGE[mapFloor]:null;
+  $('#mapOverlay').classList.add('open');
+  document.body.style.overflow='hidden';
+  showMapNotice();
+  $('#mapView').style.display='none';
+  $('#mapSetup').style.display='none';
+  $('#mapAdmin').style.display='none';
+  $('#mapLoading').style.display='flex';
+  resolvePdfSource().then(d=>{
+    if(d)loadWithDesc(d);
+    else{
+      $('#mapLoading').style.display='none';
+      $('#mapSetup').style.display='flex';
+      setMapStatus('','');
+    }
+  });
+}
+function closeMap(){
+  $('#mapOverlay').classList.remove('open');
+  document.body.style.overflow='';
+}
+function saveMapPdf(file){
   if(!file)return;
   setMapStatus('Читаю файл «'+file.name+'» ('+fmtBytes(file.size)+')…','busy');
-  let buf=null;
-  try{ buf=await fileToBuf(file); }
-  catch(e){ setMapStatus('Не удалось прочитать файл: '+e.message,'err'); return; }
-  try{
-    await idbPut(PDF_KEY,{buf:buf,mime:'application/pdf',name:file.name});
-    try{localStorage.removeItem(PDF_LS);}catch(e){}
-    memPdf=null;
-    setMapStatus('Сохранено ✓ ('+fmtBytes(file.size)+')','ok');
-    await loadMapUI(mapPage);
-    return;
-  }catch(e){}
-  if(file.size<=3500000){
-    try{
-      const du=await fileToDataURL(file);
-      localStorage.setItem(PDF_LS,JSON.stringify({name:file.name,data:du}));
-      memPdf=null;
+  fileToBuf(file).then(buf=>{
+    return idbPut(PDF_KEY,{buf:buf,mime:'application/pdf',name:file.name}).then(()=>{
+      try{localStorage.removeItem(PDF_LS);}catch(e){}
       setMapStatus('Сохранено ✓ ('+fmtBytes(file.size)+')','ok');
-      await loadMapUI(mapPage);
-      return;
-    }catch(e){}
-  }
-  memPdf={buf:buf,mime:'application/pdf',name:file.name};
-  setMapStatus('Файл открыт, но браузер не дал сохранить его — планы будут работать до перезагрузки страницы.','ok');
-  await loadMapUI(mapPage);
+      return resolvePdfSource();
+    }).catch(()=>{
+      return fileToDataURL(file).then(du=>{
+        localStorage.setItem(PDF_LS,JSON.stringify({name:file.name,data:du}));
+        setMapStatus('Сохранено ✓ ('+fmtBytes(file.size)+')','ok');
+        return resolvePdfSource();
+      });
+    });
+  }).then(d=>{
+    if(d)loadWithDesc(d);
+  }).catch(()=>{
+    setMapStatus('Не удалось сохранить файл в браузере.','err');
+  });
 }
 function removeMapPdf(){
   idbDel(PDF_KEY).catch(()=>{});
   try{localStorage.removeItem(PDF_LS);}catch(e){}
-  memPdf=null;
-  releasePdfURL();
-  mapTokens=[];
-  mapFloor=null; mapPage=null;
-  loadMapUI();
+  pdfDoc=null;currentDesc=null;lastBuf=null;
+  if(pdfObjURL){URL.revokeObjectURL(pdfObjURL);pdfObjURL=null;}
+  $('#mapView').style.display='none';
+  $('#mapSetup').style.display='flex';
+  setMapStatus('PDF удалён. Выберите файл заново.','ok');
 }
+
+/* ── Жесты: щипок, панорама, двойное нажатие, колесо ── */
+(function(){
+  const view=$('#mapView'),cv=$('#mapCanvas');
+  const ptrs=new Map();
+  let pinch=null,panStart=null,lastTap=0,lastTapX=0,lastTapY=0;
+  view.addEventListener('pointerdown',e=>{
+    if(!pdfDoc)return;
+    view.setPointerCapture(e.pointerId);
+    ptrs.set(e.pointerId,{x:e.clientX,y:e.clientY});
+    if(ptrs.size===1){
+      panStart={x:e.clientX,y:e.clientY,tx:mapTx,ty:mapTy,moved:false,t:Date.now()};
+    }else if(ptrs.size===2){
+      const p=[...ptrs.values()];
+      pinch={d:Math.hypot(p[0].x-p[1].x,p[0].y-p[1].y),s:mapScale};
+      panStart=null;
+    }
+  });
+  view.addEventListener('pointermove',e=>{
+    if(!ptrs.has(e.pointerId))return;
+    ptrs.set(e.pointerId,{x:e.clientX,y:e.clientY});
+    if(ptrs.size===2&&pinch){
+      const p=[...ptrs.values()];
+      const d=Math.hypot(p[0].x-p[1].x,p[0].y-p[1].y);
+      if(d>0){
+        const midX=(p[0].x+p[1].x)/2, midY=(p[0].y+p[1].y)/2;
+        setZoomAround(midX,midY,pinch.s*(d/pinch.d));
+      }
+    }else if(ptrs.size===1&&panStart){
+      const dx=e.clientX-panStart.x, dy=e.clientY-panStart.y;
+      if(Math.abs(dx)>4||Math.abs(dy)>4)panStart.moved=true;
+      if(mapScale>1||mapCssW*mapScale>view.clientWidth||mapCssH*mapScale>view.clientHeight){
+        mapTx=panStart.tx+dx; mapTy=panStart.ty+dy;
+        clampMapT(); applyMapTransform();
+      }
+    }
+  });
+  function endPtr(e){
+    if(!ptrs.has(e.pointerId))return;
+    ptrs.delete(e.pointerId);
+    if(ptrs.size<2)pinch=null;
+    if(ptrs.size===1){
+      const p=[...ptrs.values()][0];
+      panStart={x:p.x,y:p.y,tx:mapTx,ty:mapTy,moved:false,t:Date.now()};
+    }else if(ptrs.size===0){
+      if(panStart&&!panStart.moved&&Date.now()-panStart.t<300){
+        if(Date.now()-lastTap<320&&Math.hypot(e.clientX-lastTapX,e.clientY-lastTapY)<40){
+          setZoomAround(e.clientX,e.clientY,mapScale>1.4?1:2.5);
+          lastTap=0;
+        }else{
+          lastTap=Date.now();lastTapX=e.clientX;lastTapY=e.clientY;
+        }
+      }
+      panStart=null;
+    }
+  }
+  view.addEventListener('pointerup',endPtr);
+  view.addEventListener('pointercancel',endPtr);
+  view.addEventListener('wheel',e=>{
+    if(!pdfDoc)return;
+    e.preventDefault();
+    const f=e.deltaY<0?1.15:1/1.15;
+    setZoomAround(e.clientX,e.clientY,mapScale*f);
+  },{passive:false});
+  view.addEventListener('dblclick',e=>{
+    if(!pdfDoc)return;
+    setZoomAround(e.clientX,e.clientY,mapScale>1.4?1:2.5);
+  });
+  window.addEventListener('resize',()=>{
+    if(pdfDoc&&$('#mapOverlay').classList.contains('open'))renderMapPage(pdfPageNum);
+  });
+})();
 
 /* ══════════════ ДАТЫ/ПЕРИОДЫ ══════════════ */
 function mondayOf(off){
@@ -956,7 +1060,6 @@ function persist(){persistAll();}
 const loaded=loadAll();
 let days=loaded.lessons, hwStore=loaded.hw, booksStore=loaded.books;
 
-/* ── Хранилище файлов книг ── */
 const IDB_NAME='vmk118_files', IDB_STORE='files';
 let idb=null;
 function idbOpen(){
@@ -1023,7 +1126,6 @@ async function saveFileBlob(m,file){
   return false;
 }
 
-/* ДЗ */
 function getHw(vd,id){const s=hwStore[dkey(vd)];return s?s[id]:null;}
 function setHw(vd,id,text,done){
   const k=dkey(vd);
@@ -1042,7 +1144,6 @@ function dateHasHw(d){
   return Object.values(s).some(h=>h&&h.t&&!h.d);
 }
 
-/* Книги */
 function subjKey(s){
   return (s||'').toLowerCase().replace(/ё/g,'е').replace(/\([^)]*\)/g,' ').replace(/\s+/g,' ').trim();
 }
@@ -1095,7 +1196,6 @@ function anyOverlayOpen(){
     $('#resetOverlay').classList.contains('open');
 }
 
-/* ── Рендер ── */
 function renderTabs(){
   const c=$('#tabs'); c.innerHTML='';
   const base=mondayOf(weekOffset), todayKey=dkey(new Date());
@@ -1335,7 +1435,6 @@ function gotoDate(d){
   render();
 }
 
-/* ── Модалка пары ── */
 function openModal(mode,id){
   modal={open:true,mode,id};
   const l=mode==='edit'?days[DAYS[dayIdx].key].find(x=>x.id===id):null;
@@ -1376,7 +1475,6 @@ function saveModal(){
   persist(); closeModal(); renderDay();
 }
 
-/* ── Модалка ДЗ ── */
 function openHw(l){
   hwModal={open:true,lesson:l};
   const vd=viewedDate();
@@ -1407,7 +1505,6 @@ function deleteHw(){
   closeHw(); renderDay();
 }
 
-/* ── Модалка книг ── */
 function openBooks(key,subject,type){
   bk={key};
   $('#bkTitle').textContent='Книги · '+(subject||'—')+(type?' · '+typeLabel(type).toLowerCase():'');
@@ -1485,7 +1582,6 @@ function delBook(i){
   persist(); renderBkList(); renderDay();
 }
 
-/* ── Модалка сброса ── */
 function openReset(){
   $('#rsHw').checked=true; $('#rsBooks').checked=true; $('#rsSched').checked=true; $('#rsMap').checked=false;
   $('#resetOverlay').classList.add('open');
@@ -1508,12 +1604,12 @@ function applyReset(){
   if(doMap){
     idbDel(PDF_KEY).catch(()=>{});
     try{localStorage.removeItem(PDF_LS);}catch(e){}
-    memPdf=null; releasePdfURL();
+    pdfDoc=null;currentDesc=null;lastBuf=null;
+    if(pdfObjURL){URL.revokeObjectURL(pdfObjURL);pdfObjURL=null;}
   }
   persist(); closeReset(); render();
 }
 
-/* ── Модалка календаря ── */
 let calY=2026,calM=8;
 function openCalendar(){
   const vd=viewedDate();
@@ -1552,14 +1648,12 @@ function renderCal(){
   }
 }
 
-/* ── Часы ── */
 function tickClock(){
   const n=new Date();
   $('#clockTime').textContent=pad(n.getHours())+':'+pad(n.getMinutes());
   $('#clockDate').textContent=WD_SHORT[n.getDay()]+', '+n.getDate()+' '+MONTHS_G[n.getMonth()];
 }
 
-/* ── Тема ── */
 function applyTheme(t){
   document.documentElement.setAttribute('data-theme',t);
   $('#themeBtn').innerHTML=ic(t==='dark'?'sun':'moon',18);
@@ -1584,6 +1678,10 @@ function unlockScroll(){
  $('#rsClose').innerHTML=ic('x',16);
  $('#calClose').innerHTML=ic('x',16);
  $('#mapClose').innerHTML=ic('x',16);
+ $('#mpPrev').innerHTML=ic('chevL',16);
+ $('#mpNext').innerHTML=ic('chevR',16);
+ $('#mpZoom').innerHTML=ic('reset',16);
+ $('#mpNewTab').innerHTML=ic('download',16);
  $('#addBtn').innerHTML=ic('plus',16)+'<span>Добавить пару</span>';
  $('#editHint').innerHTML=ic('pencil',15)+'<span>Режим редактирования: нажмите на пару, чтобы изменить время, предмет, преподавателя или аудиторию. Номер пары (1–5) определяется по времени начала, пустые слоты — «окно». Домашнее задание записывается кнопкой «Добавить ДЗ» на карточке пары.</span>';
 TYPES.forEach(t=>{const o=document.createElement('option');o.value=t.k;o.textContent=t.label;$('#fType').appendChild(o);});
@@ -1634,95 +1732,58 @@ TYPES.forEach(t=>{const o=document.createElement('option');o.value=t.k;o.textCon
  $('#calToday').onclick=()=>{closeCal();goToday();};
  $('#calOverlay').addEventListener('click',e=>{if(e.target===$('#calOverlay'))closeCal();});
 
-/* ── Карта: PDF ── */
-function openMap(tokens){
-  mapTokens=Array.isArray(tokens)?tokens:[];
-  mapFloor=floorFromTokens(mapTokens);
-  mapPage=mapFloor?PDF_PAGE[mapFloor]:null;
-  /* телефон: открываем PDF сразу в новой вкладке, на странице нужного этажа */
-  if(window.matchMedia('(max-width:768px)').matches){
-    loadMapUI(mapPage).then(src=>{
-      if(src){
-        let u=src;
-        if(mapPage)u=src+'#page='+mapPage;
-        window.open(u,'_blank');
-      }else{
-        /* PDF ещё не подключён — показываем окно загрузки */
-        $('#mapOverlay').classList.add('open');
-        document.body.style.overflow='hidden';
-      }
-    });
-    return;
-  }
-  /* компьютер: окно с PDF, прыжок на страницу этажа */
-  $('#mapOverlay').classList.add('open');
-  document.body.style.overflow='hidden';
-  loadMapUI(mapPage);
-}
-function closeMap(){
-  $('#mapOverlay').classList.remove('open');
-  $('#pdfFrame').src='about:blank';
-  releasePdfURL();
-  try{ if(document.fullscreenElement)document.exitFullscreen(); }catch(e){}
-  $('#mapOverlay').classList.remove('mapfull');
-  unlockScroll();
-}
+/* ── Карта: управление ── */
  $('#mapBtn').onclick=()=>openMap([]);
  $('#mapClose').onclick=closeMap;
  $('#mapOverlay').addEventListener('click',e=>{if(e.target===$('#mapOverlay'))closeMap();});
-
+ $('#mpPrev').onclick=()=>{if(pdfDoc)renderMapPage(pdfPageNum-1);};
+ $('#mpNext').onclick=()=>{if(pdfDoc)renderMapPage(pdfPageNum+1);};
+ $('#mpZoom').onclick=()=>{resetMapZoom();};
+ $('#mpNewTab').onclick=()=>{
+  let u=pdfObjURL;
+  if(!u&&currentDesc&&currentDesc.url)u=currentDesc.url;
+  if(u)window.open(u,'_blank');
+};
+ $('#mpChange').onclick=()=>{
+  $('#mapView').style.display='none';
+  $('#mapAdmin').style.display='none';
+  $('#mapSetup').style.display='flex';
+  setMapStatus('Выберите новый PDF — он заменит текущий','busy');
+};
+ $('#mpDelete').onclick=()=>{
+  if(confirm('Удалить сохранённый PDF с картами?'))removeMapPdf();
+};
+ $('#mpSibling').onclick=()=>{
+  loadWithDesc({url:PDF_SIB,name:'floors.pdf',persist:false});
+};
  $('#mapPdfInput').addEventListener('change',function(){
   const f=this.files&&this.files[0];
   this.value='';
-  if(!f){ setMapStatus('',''); return; }
-  saveMapPdf(f);
+  if(f)saveMapPdf(f);
 });
 const mapBody=$('#mapBody');
-['dragenter','dragover'].forEach(ev=>mapBody.addEventListener(ev,e=>{e.preventDefault();$('#pdfZone').classList.add('drag');}));
-['dragleave','drop'].forEach(ev=>mapBody.addEventListener(ev,e=>{e.preventDefault();$('#pdfZone').classList.remove('drag');}));
+['dragenter','dragover'].forEach(ev=>mapBody.addEventListener(ev,e=>{e.preventDefault();$('#mapSetup').classList.add('drag');}));
+['dragleave','drop'].forEach(ev=>mapBody.addEventListener(ev,e=>{e.preventDefault();$('#mapSetup').classList.remove('drag');}));
 mapBody.addEventListener('drop',e=>{
   const f=e.dataTransfer&&e.dataTransfer.files&&e.dataTransfer.files[0];
   if(f)saveMapPdf(f);
-});
- $('#pdfSibling').onclick=()=>{
-  releasePdfURL();
-  showViewer(PDF_SIB,'floors.pdf (из папки сайта)',
-    'Если планы не открылись — файла floors.pdf нет рядом с сайтом. Либо используйте «Способ 2».',mapPage);
-  $('#pdfRemove').style.display='none';
-  showMapNotice();
-};
- $('#pdfReplace').onclick=()=>{
-  releasePdfURL();
-  showZone();
-  setMapStatus('Выберите новый PDF — он заменит текущий','busy');
-};
- $('#pdfRemove').onclick=()=>{
-  if(confirm('Удалить сохранённый PDF с картами?'))removeMapPdf();
-};
- $('#pdfNewTab').onclick=()=>{
-  const src=$('#pdfFrame').getAttribute('src');
-  if(src&&src!=='about:blank')window.open(src,'_blank');
-};
- $('#pdfFsBtn').onclick=()=>{
-  const el=document.querySelector('#mapOverlay .modal');
-  if(document.fullscreenElement){document.exitFullscreen();$('#mapOverlay').classList.remove('mapfull');}
-  else if(el&&el.requestFullscreen){el.requestFullscreen();$('#mapOverlay').classList.add('mapfull');}
-};
-document.addEventListener('fullscreenchange',()=>{
-  if(!document.fullscreenElement)$('#mapOverlay').classList.remove('mapfull');
 });
 
  $('#themeBtn').onclick=()=>applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark');
 
 document.addEventListener('keydown',e=>{
   if(e.key==='Escape'){
-    if(document.fullscreenElement&&$('#mapOverlay').classList.contains('open'))return;
+    if($('#mapOverlay').classList.contains('open')){closeMap();return;}
     if($('#resetOverlay').classList.contains('open')){closeReset();return;}
     if($('#hwOverlay').classList.contains('open')){closeHw();return;}
     if($('#booksOverlay').classList.contains('open')){closeBooks();return;}
     if($('#calOverlay').classList.contains('open')){closeCal();return;}
-    if($('#mapOverlay').classList.contains('open')){closeMap();return;}
     if(modal.open){closeModal();return;}
+  }
+  if($('#mapOverlay').classList.contains('open')){
+    if(e.key==='ArrowLeft'){e.preventDefault();if(pdfDoc)renderMapPage(pdfPageNum-1);}
+    else if(e.key==='ArrowRight'){e.preventDefault();if(pdfDoc)renderMapPage(pdfPageNum+1);}
+    return;
   }
   if(anyOverlayOpen())return;
   const tag=(e.target.tagName||'').toLowerCase();
@@ -1732,7 +1793,6 @@ document.addEventListener('keydown',e=>{
 });
 
 /* ── Свайпы в стиле Telegram ── */
-/* 1) палец скользит по вкладкам дней — день следует за пальцем */
 (function(){
   const strip=$('#tabs'); let on=false;
   strip.addEventListener('touchstart',()=>{on=true;},{passive:true});
@@ -1747,8 +1807,6 @@ document.addEventListener('keydown',e=>{
   strip.addEventListener('touchend',()=>{on=false;},{passive:true});
   strip.addEventListener('touchcancel',()=>{on=false;},{passive:true});
 })();
-
-/* 2) свайп по расписанию: страница тянется за пальцем, вкладка-сосед подсвечивается */
 (function(){
   const dv=$('#dayView'), strip=$('#tabs');
   let sx=0,sy=0,on=false,lock=null,dx=0,curHint=null;
